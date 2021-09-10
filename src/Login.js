@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import data from './data.json';
 
 const Login = props => {
   const onFinish = values => {
@@ -54,7 +53,7 @@ const Login = props => {
             style={{ width: '20vw' }}
             disabled={false}
           >
-            SING IN
+            SIGN IN
           </Button>
         </Form.Item>
         <div style={{ textAlign: 'center' }}>
