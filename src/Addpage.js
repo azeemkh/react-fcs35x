@@ -38,8 +38,8 @@ const Addpage = props => {
         id: len
       }
     ]);
-    success();
     form.setFieldsValue({ user: { firstName: '', lastName: '', age: '' } });
+    success();
   };
 
   return (
