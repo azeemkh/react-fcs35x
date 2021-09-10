@@ -1,12 +1,18 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import credentials from './data.json';
 
 const Login = props => {
   const onFinish = values => {
-    if (values.username && values.password) {
+    if (
+      values.username === credentials.username &&
+      values.password === credentials.password
+    ) {
       localStorage.setItem('userDetailsAssignment', JSON.stringify(values));
       props.setUserDetails({ ...values });
+    } else {
+      message.warning('Invalid credentials');
     }
   };
 
