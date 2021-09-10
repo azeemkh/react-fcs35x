@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, InputNumber, Button } from 'antd';
+import { Form, Input, InputNumber, Button, message } from 'antd';
 const layout = {
   labelCol: {
     span: 8
@@ -23,6 +23,10 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const Addpage = props => {
+  const [form] = Form.useForm();
+  const success = () => {
+    message.success('successfuly saved');
+  };
   const onFinish = values => {
     const len = (props.tableData.length + 1).toString();
     props.setTableData([
@@ -34,6 +38,8 @@ const Addpage = props => {
         id: len
       }
     ]);
+    success();
+    form.setFieldsValue({ user: { firstName: '', lastName: '', age: '' } });
   };
 
   return (
@@ -43,6 +49,7 @@ const Addpage = props => {
         name="nest-messages"
         onFinish={onFinish}
         validateMessages={validateMessages}
+        form={form}
       >
         <Form.Item
           name={['user', 'firstName']}

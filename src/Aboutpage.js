@@ -3,7 +3,9 @@ import React from 'react';
 const Aboutpage = () => {
   return (
     <>
-      <h1 style={{ fontFamily: 'emoji', textAlign: 'center' }}>Lorum Ipsum</h1>
+      <h1 style={{ fontFamily: 'DauphinPlain', textAlign: 'center' }}>
+        Lorum Ipsum
+      </h1>
       <p style={{ textAlign: 'center' }}>
         {' '}
         Lorum Ipsum Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
