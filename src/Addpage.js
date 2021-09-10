@@ -1,5 +1,8 @@
 import React from 'react';
 import { Form, Input, InputNumber, Button, message } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateItems } from './actions';
+
 const layout = {
   labelCol: {
     span: 8
@@ -22,22 +25,25 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const Addpage = props => {
+const Addpage = () => {
+  const dispatch = useDispatch();
+  const items = useSelector(state => {
+    return state;
+  });
   const [form] = Form.useForm();
   const success = () => {
     message.success('successfully saved');
   };
   const onFinish = values => {
-    const len = (props.tableData.length + 1).toString();
-    props.setTableData([
-      ...props.tableData,
-      {
+    const len = (items.itemsData.itemsData.length + 1).toString();
+    dispatch(
+      updateItems({
         ...values.user,
         name: `${values.user.firstName} ${values.user.lastName}`,
         key: len,
         id: len
-      }
-    ]);
+      })
+    );
     form.setFieldsValue({ user: { firstName: '', lastName: '', age: '' } });
     success();
   };

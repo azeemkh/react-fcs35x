@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import { useSelector } from 'react-redux';
 
 const columns = [
   {
@@ -25,30 +26,6 @@ const columns = [
   }
 ];
 
-const data = [
-  {
-    key: '1',
-    firstName: 'John',
-    lastName: 'Brown',
-    name: 'John Brown',
-    age: 32
-  },
-  {
-    key: '2',
-    firstName: 'Jim',
-    lastName: 'Green',
-    name: 'Jim Green',
-    age: 42
-  },
-  {
-    key: '3',
-    firstName: 'Joe',
-    lastName: 'Black',
-    name: 'Joe Black',
-    age: 32
-  }
-];
-
 // rowSelection object indicates the need for row selection
 const rowSelection = {
   onChange: (selectedRowKeys, selectedRows) => {
@@ -63,7 +40,10 @@ const rowSelection = {
   })
 };
 
-const Dashboard = props => {
+const Dashboard = () => {
+  const items = useSelector(state => {
+    return state;
+  });
   return (
     <div style={{ margin: 50 }}>
       <Table
@@ -71,7 +51,7 @@ const Dashboard = props => {
           ...rowSelection
         }}
         columns={columns}
-        dataSource={props.tableData}
+        dataSource={items.itemsData.itemsData}
       />
     </div>
   );

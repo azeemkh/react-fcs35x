@@ -37,7 +37,7 @@ export default function App() {
     }
   }, []);
 
-  console.log(tableData, 'tableData');
+  //console.log(items.itemsData.itemsData, 'tableData');
 
   return (
     <div>
