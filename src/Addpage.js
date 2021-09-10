@@ -25,7 +25,7 @@ const validateMessages = {
 const Addpage = props => {
   const [form] = Form.useForm();
   const success = () => {
-    message.success('successfuly saved');
+    message.success('successfully saved');
   };
   const onFinish = values => {
     const len = (props.tableData.length + 1).toString();
